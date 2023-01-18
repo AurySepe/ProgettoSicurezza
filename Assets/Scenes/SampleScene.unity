@@ -5464,6 +5464,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 452247751411826499, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223537187509933596, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 159.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223537187509933596, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943175298605184, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -155.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943175298605184, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656943175298605191, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_Name
+      value: Your
+      objectReference: {fileID: 0}
     - target: {fileID: 5656943175727800294, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
       propertyPath: arrowAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5472,6 +5496,10 @@ PrefabInstance:
       propertyPath: arrowAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: EndBattle
       objectReference: {fileID: 0}
+    - target: {fileID: 5656943176192306847, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: faf8376a240162949b265896d58214cf, type: 3}
     - target: {fileID: 5656943176905377842, guid: df1771bccfa35ac42ad94ba9e2831bff, type: 3}
       propertyPath: m_Name
       value: BattleScene
