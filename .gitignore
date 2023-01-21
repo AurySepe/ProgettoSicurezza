@@ -57,3 +57,5 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+./Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/Contract.js

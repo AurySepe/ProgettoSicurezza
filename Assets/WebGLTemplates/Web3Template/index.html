@@ -9,7 +9,7 @@
   </head>
   <body>
   	<div>
-  		<button id="buttonConnect" onclick="connectToMetamask()"></button>
+  		<button id="buttonConnect" onclick="ethereum.enable();" style="display:none"></button>
   	</div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width={{{ WIDTH }}} height={{{ HEIGHT }}}></canvas>
@@ -28,11 +28,14 @@
         <div id="unity-build-title">{{{ PRODUCT_NAME }}}</div>
       </div>
     </div>
+    <script src="TemplateData/Javascript/Inizialize.js"></script>
     <script>
+    window.onload = Inizialize;
 
-      
     </script>
-    <script src="TemplateData/web3.min.js"></script>
-    <script src="TemplateData/web3Connect.js"></script>
+    <script src="TemplateData/Javascript/web3.min.js"></script>
+    <script src="TemplateData/Javascript/web3Connect.js"></script>
+    <script src="TemplateData/Javascript/Contract.js"></script>
+    <script src="TemplateData/Javascript/ContractCalls.js"></script>
   </body>
 </html>
