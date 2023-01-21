@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenuAttribute(fileName = "PokeChain",menuName = "PokeChain/Create new Pokechain")]
-public class PokeChainData : ScriptableObject
+[CreateAssetMenuAttribute(fileName = "MonsterEditor",menuName = "MonsterEditor/Create new Monster")]
+public class MonsterData : ScriptableObject
 {
 
     [SerializeField]

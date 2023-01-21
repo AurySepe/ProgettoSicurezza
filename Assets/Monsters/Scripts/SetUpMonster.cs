@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SetUpPokeChain : MonoBehaviour
+public class SetUpMonster : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -13,10 +13,10 @@ public class SetUpPokeChain : MonoBehaviour
    
 
     // Update is called once per frame
-    public void SetPokeChain(PokeChain pokeChain)
+    public void SetMonster(Monster monster)
     {
-        _spriteRenderer.sprite = pokeChain.Data.Sprite;
+        _spriteRenderer.sprite = monster.Img;
         _spriteRenderer.color = Random.ColorHSV();
-        gameObject.name = pokeChain.Data.Name;
+        gameObject.name = monster.Nome;
     }
 }

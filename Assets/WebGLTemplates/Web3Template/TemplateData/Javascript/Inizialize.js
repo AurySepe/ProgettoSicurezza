@@ -1,3 +1,6 @@
+
+let account;
+
 function Inizialize()
 {
     if (!window.ethereum) {
@@ -6,7 +9,8 @@ function Inizialize()
     }
     console.log("Inizializzazione")
     web3 = new Web3(window.ethereum);
-    window.ethereum.on("accountsChanged", function () {
+    window.ethereum.on("accountsChanged", function (accounts) {
+        account=accounts[0];
         ActivateGame()
     });
     web3.eth.getAccounts()
@@ -17,10 +21,12 @@ function Inizialize()
             }
             else
             {
+                account=fetchedAccounts[0];
                 ActivateGame()
             }
         });
 }
+
 
 
 function ActivateGame()

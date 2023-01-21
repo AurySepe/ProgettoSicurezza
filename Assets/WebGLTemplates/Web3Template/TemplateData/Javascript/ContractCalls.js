@@ -7,3 +7,13 @@ function GetMyMonsters()
         console.log("errore nella chiamata: " + error);
     })
 }
+
+function EncounterMonster()
+{
+    Contract.methods.EncounterMonster().send({from:account}).then(function(result){
+       
+        console.log("Mostro incontrato: " +  result.events.Risultato.returnValues.value);
+    }).catch(function(error){
+        console.log("errore nella chiamata: " + error);
+    })
+}

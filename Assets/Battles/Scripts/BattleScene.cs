@@ -15,6 +15,9 @@ public class BattleScene : MonoBehaviour
 
     [SerializeField] 
     private GameObject battleScene;
+    
+    [SerializeField] 
+    private Image monsterImage;
 
     public bool IsBattle { get; protected set; }
     
@@ -38,12 +41,13 @@ public class BattleScene : MonoBehaviour
         
     }
 
-    public void StartBattle(PokeChain pokeChain)
+    public void StartBattle(Monster monster)
     {
         IsBattle = true;
         battleScene.SetActive(true);
         NormalScene.SetActive(false);
-        textDialog.text = $"Hai incontrato {pokeChain.Data.Name}!\nCosa vuoi fare?";
+        monsterImage.sprite = monster.Img;
+        textDialog.text = $"Hai incontrato {monster.Nome}!\nCosa vuoi fare?";
     }
 
     public void EndBattle()

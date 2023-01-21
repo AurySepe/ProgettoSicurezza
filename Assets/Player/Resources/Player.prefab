@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: -907029019
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7152930139536384079, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
+  m_Sprite: {fileID: -2068933891, guid: 3111f23cd57d2be48b2ee6bac4a23588, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.16, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,9 +102,7 @@ MonoBehaviour:
   GrassLayer:
     serializedVersion: 2
     m_Bits: 512
-  Poke: {fileID: 7749722681115953915, guid: d9aa6ebfca25ef149bdf5c38ffcfda67, type: 3}
-  PokeChainDatas:
-  - {fileID: 11400000, guid: c8c7d661fa6fada40b899c7b39f943df, type: 2}
+  sprite: {fileID: 21300000, guid: b322978850b2b7c47a8fb08c9e26c6a1, type: 3}
 --- !u!114 &641144731
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class EncounterEvent : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    [DllImport("__Internal")]
+    private static extern int EncounterMonster();
     [SerializeField] private LayerMask GrassLayer;
-    [SerializeField] private GameObject Poke;
-    [SerializeField] private List<PokeChainData> PokeChainDatas;
+    [SerializeField] private Sprite sprite;
     
     
     void Start()
@@ -34,17 +38,10 @@ public class EncounterEvent : MonoBehaviour
 
     private void RandomEncounter()
     {
-        BattleScene.Instance.StartBattle(GetRandomPokeChain());
+        int monsterId=EncounterMonster();
+        Monster monster = new Monster(sprite, monsterId, "MonsterTest");
+        BattleScene.Instance.StartBattle(monster);
         
     }
-
-
-    private PokeChain GetRandomPokeChain()
-    {
-        System.Random random = new System.Random();
-        int index = random.Next(PokeChainDatas.Count);
-        PokeChainData randomItem = PokeChainDatas[index];
-        PokeChain result = new PokeChain(randomItem,random.Next(2) == 0);
-        return result;
-    }
+    
 }
