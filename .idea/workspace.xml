@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4c756a48-f353-4e08-b428-39f828ff2052" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Requests/Scripts/Request.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Requests/Scripts/Request.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Requests/Scripts/Response.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Requests/Scripts/Response.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/RequestServer/HelperFunctions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/RequestServer/RequestRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/web3.jslib.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/web3.jslib.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Renderer2D.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Renderer2D.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRP.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/Contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/Contract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/ContractCalls.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/ContractCalls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/Inizialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/Inizialize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/web3Connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/TemplateData/Javascript/web3Connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/WebGLTemplates/Web3Template/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/boot.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KrUPupFBX70lO5w7Ro6VmyDH6d" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c756a48-f353-4e08-b428-39f828ff2052" name="Changes" comment="" />
+      <created>1674732175331</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674732175331</updated>
+      <workItem from="1674732179014" duration="3566000" />
+      <workItem from="1674757530538" duration="5000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

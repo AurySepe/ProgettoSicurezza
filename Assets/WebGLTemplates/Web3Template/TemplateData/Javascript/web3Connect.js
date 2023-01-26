@@ -1,6 +1,6 @@
 
 
-
+let UnityInstance;
 
 
 function startGame()
@@ -61,6 +61,7 @@ function startGame()
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+            UnityInstance = unityInstance;
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);

@@ -1,6 +1,6 @@
 let Contract;
 
-let Address = "0x079Ca757539d0b5DaEA1dd8D1f12fA6E45F3d592";
+let Address = "0x8d7c733532e493a3d3Ff08Ee0b0da269A0298C59";
 
 
 let abi = [
@@ -655,7 +655,9 @@ let abi = [
         "stateMutability": "nonpayable",
         "type": "function"
     }
-]
+];
+
+let gas = 30000000;
 
 function SetContract()
 {
