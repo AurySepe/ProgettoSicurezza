@@ -8,7 +8,7 @@ mergeInto(LibraryManager.library, {
     SendRequest: function (requestJson)
      {
          let request = JSON.parse( UTF8ToString(requestJson) );
-         console.log("Questa è la richiesta ricevuta: " + request);
+         console.log("Questa è la richiesta ricevuta: " + JSON.stringify(request));
          let requestFunction = RequestRouter[request.Uri];
          let input;
          if (request.Data !== undefined)
@@ -23,6 +23,7 @@ mergeInto(LibraryManager.library, {
          }).
          catch((error) =>
          {
+             console.log("errore rilevato: " + JSON.stringify(error));
              let response = {"RequestId" : request.RequestId,"Ok" : false,"Result" : error.code + ""};
              SendResponse(JSON.stringify(response));
          })

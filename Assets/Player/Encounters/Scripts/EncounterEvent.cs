@@ -10,10 +10,7 @@ public class EncounterEvent : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [DllImport("__Internal")]
-    private static extern int EncounterMonster();
     [SerializeField] private LayerMask GrassLayer;
-    [SerializeField] private Sprite sprite;
     
     
     void Start()
@@ -38,10 +35,7 @@ public class EncounterEvent : MonoBehaviour
 
     private void RandomEncounter()
     {
-        int monsterId=EncounterMonster();
-        Monster monster = new Monster(sprite, monsterId, "MonsterTest");
-        BattleScene.Instance.StartBattle(monster);
-        
+        BattleScene.Instance.StartBattle();
     }
     
 }

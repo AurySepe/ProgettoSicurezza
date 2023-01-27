@@ -34,7 +34,7 @@ public class EventHandler : MonoBehaviour
         switch (chainEvent.Name)
         {
                 case "Risultato":
-                    RisultatoEvents.Invoke(JsonConvert.DeserializeObject<RisultatoEvent>(chainEvent.ReturnValue));
+                    RisultatoEvents?.Invoke(JsonConvert.DeserializeObject<RisultatoEvent>(chainEvent.ReturnValue));
                     break;
                 default:
                     Debug.Log($"Nessun Listner implementato per l'evento {chainEvent.Name}");

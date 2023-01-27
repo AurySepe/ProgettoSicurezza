@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scenes.TestScene.Scripts.Services;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,14 +23,18 @@ public class BattleScene : MonoBehaviour
 
     public bool IsBattle { get; protected set; }
     
+    public Monster CurrentMonster { get; protected set; }
+    
     public static BattleScene Instance { get; private set; }
+
+    private MonsterService _monsterService = new MonsterService();
     private void Awake() 
     { 
         // If there is an instance, and it's not me, delete myself.
     
         if (Instance != null && Instance != this) 
         { 
-            Destroy(this); 
+            Destroy(gameObject); 
         } 
         else 
         { 
@@ -41,25 +47,54 @@ public class BattleScene : MonoBehaviour
         
     }
 
-    public void StartBattle(Monster monster)
+    #region Transitions
+
+        private void StartEncounterTransition()
+        {
+            battleScene.SetActive(true);
+            NormalScene.SetActive(false);
+            textDialog.text = $"In attesa del mostro";
+        }
+
+        private void MonsterFoundTransition(Monster monster)
+        {
+            Debug.Log("Mostro trovato");
+            CurrentMonster = monster;
+            monsterImage.sprite = monster.Img;
+            textDialog.text = $"hai incontrato {monster.Nome}! Cosa vuoi fare?";
+
+        }
+
+        private void MonsterNotFoundTransition(string s)
+        {
+            textDialog.text = $"Mannaggia alla miseria, il mostro è scappato poichè {s}!";
+        }
+        
+        private void EndBattleTransition()
+        {
+            monsterImage.sprite = null;
+            NormalScene.SetActive(true);
+            battleScene.SetActive(false);
+        }
+
+    #endregion
+
+
+
+    public void StartBattle()
     {
         IsBattle = true;
-        battleScene.SetActive(true);
-        NormalScene.SetActive(false);
-        monsterImage.sprite = monster.Img;
-        textDialog.text = $"Hai incontrato {monster.Nome}!\nCosa vuoi fare?";
+        StartEncounterTransition();
+        Action<int> OnSuccess = i => _monsterService.GetMonsterById(i,MonsterFoundTransition,MonsterNotFoundTransition);
+        _monsterService.GetRandomMonsterById(OnSuccess,MonsterNotFoundTransition);
+        
     }
 
     public void EndBattle()
     {
         IsBattle = false;
-        NormalScene.SetActive(true);
-        battleScene.SetActive(false);
+        EndBattleTransition();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

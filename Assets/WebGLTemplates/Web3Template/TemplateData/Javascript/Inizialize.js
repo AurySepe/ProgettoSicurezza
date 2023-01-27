@@ -32,5 +32,12 @@ async function ActivateGame() {
     startGame();
     SetContract();
     SetEventLisners();
+    //Test();
 }
 
+
+async function Test()
+{
+    let result = await GetMonstersById(0);
+    console.log("il risultato di GetMonsterById è :" + result);
+}
