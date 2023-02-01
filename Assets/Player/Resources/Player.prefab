@@ -102,7 +102,6 @@ MonoBehaviour:
   GrassLayer:
     serializedVersion: 2
     m_Bits: 512
-  sprite: {fileID: 21300000, guid: b322978850b2b7c47a8fb08c9e26c6a1, type: 3}
 --- !u!114 &641144731
 MonoBehaviour:
   m_ObjectHideFlags: 0

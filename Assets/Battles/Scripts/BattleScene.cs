@@ -21,6 +21,12 @@ public class BattleScene : MonoBehaviour
     [SerializeField] 
     private Image monsterImage;
 
+    [SerializeField] 
+    private GameObject action;
+
+    [SerializeField] 
+    private GameObject loadingMonster;
+
     public bool IsBattle { get; protected set; }
     
     public Monster CurrentMonster { get; protected set; }
@@ -61,13 +67,19 @@ public class BattleScene : MonoBehaviour
             Debug.Log("Mostro trovato");
             CurrentMonster = monster;
             monsterImage.sprite = monster.Img;
+            monsterImage.enabled = true;
             textDialog.text = $"hai incontrato {monster.Nome}! Cosa vuoi fare?";
+            loadingMonster.SetActive(false);
+            
+            action.SetActive(true);
 
         }
 
         private void MonsterNotFoundTransition(string s)
         {
-            textDialog.text = $"Mannaggia alla miseria, il mostro è scappato poichè {s}!";
+            loadingMonster.SetActive(false);
+            textDialog.text = $"il mostro è scappato poichè {s}!";
+            action.SetActive(true);
         }
         
         private void EndBattleTransition()
@@ -84,6 +96,9 @@ public class BattleScene : MonoBehaviour
     public void StartBattle()
     {
         IsBattle = true;
+        monsterImage.enabled = false;
+        action.SetActive(false);
+        loadingMonster.SetActive(true);
         StartEncounterTransition();
         Action<int> OnSuccess = i => _monsterService.GetMonsterById(i,MonsterFoundTransition,MonsterNotFoundTransition);
         _monsterService.GetRandomMonsterById(OnSuccess,MonsterNotFoundTransition);
