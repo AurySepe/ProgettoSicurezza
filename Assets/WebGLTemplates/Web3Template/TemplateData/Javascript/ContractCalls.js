@@ -8,6 +8,9 @@ async function EncounterMonster() {
     return result.events.Risultato.returnValues.value;
 }
 
+async function ObtainMonster(id) {
+    let result = await Contract.methods.ObtainMonster(id).send({from: account});
+}
 
 async function GetMonstersById(id) {
     let result =  await Contract.methods.getMonsterByToken(id).call()

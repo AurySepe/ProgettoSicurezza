@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Scenes.TestScene.Scripts.Model;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Scenes.TestScene.Scripts.Services
     public class MonsterService
     {
 
+        
         public void GetMonsterById(int id, Action<Monster> OnSuccess, Action<string> onFail)
         {
             Action<Response> responseAction = response =>
@@ -37,6 +39,43 @@ namespace Scenes.TestScene.Scripts.Services
 
             RequestHandler.Instance.MakeRequest("/GetMonsterById",id,responseAction);
         }
+        
+        
+        
+        public void ObtainMonster(int id, Action OnSuccess, Action<string> onFail)
+        {
+            Action<Response> responseAction = response =>
+            {
+                Debug.Log("Risposta ricevuta");
+                if (!response.Ok)
+                {
+                    onFail(response.Result);
+                    return;
+                }
+
+                OnSuccess();
+            };
+            RequestHandler.Instance.MakeRequest("/ObtainMonster", id, responseAction);
+        }
+        
+        public void GetMyMonsters(Action<List<int>> OnSuccess, Action<string> onFail)
+        {
+            Action<Response> responseAction = response =>
+            {
+                Debug.Log("Risposta ricevuta");
+                if (!response.Ok)
+                {
+                    onFail(response.Result);
+                    return;
+                }
+
+                List<int> listId = JsonConvert.DeserializeObject<List<int>>(response.Result);
+                
+                OnSuccess(listId);
+            };
+            RequestHandler.Instance.MakeRequest("/MyMonsters", null, responseAction);
+        }
+
         
         public void GetRandomMonsterById(Action<int> OnSuccess, Action<string> onFail)
         {

@@ -45,20 +45,22 @@ public class SelectAction : MonoBehaviour
         {
             newIndex = (currentActiveArrow + 1) % arrows.Count;
             
+            arrows[currentActiveArrow].SetActive(false);
+            arrows[newIndex].SetActive(true);
+            
+            currentActiveArrow = newIndex;
         }
         else if(Input.GetKeyDown(KeyCode.DownArrow))
         {
             
 
             newIndex = currentActiveArrow - 1 == -1 ? arrows.Count - 1 : currentActiveArrow - 1;
+            
+            arrows[currentActiveArrow].SetActive(false);
+            arrows[newIndex].SetActive(true);
+            
+            currentActiveArrow = newIndex;
         }
-        else
-        {
-            newIndex = currentActiveArrow;
-        }
-        arrows[currentActiveArrow].SetActive(false);
-        arrows[newIndex].SetActive(true);
-        currentActiveArrow = newIndex;
     }
 
     private UnityEvent GetActionFromArrow(GameObject gameObject)

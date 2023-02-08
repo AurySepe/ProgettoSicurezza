@@ -9,6 +9,8 @@ public class BattleScene : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    private bool battleEnd = false;
+    
     [SerializeField] 
     private Text textDialog;
 
@@ -79,7 +81,7 @@ public class BattleScene : MonoBehaviour
         {
             loadingMonster.SetActive(false);
             textDialog.text = $"il mostro è scappato poichè {s}!";
-            action.SetActive(true);
+            battleEnd = true;
         }
         
         private void EndBattleTransition()
@@ -105,6 +107,34 @@ public class BattleScene : MonoBehaviour
         
     }
 
+    public void Obtain()
+    {
+        _monsterService.ObtainMonster(CurrentMonster.Id, OnSuccessObtain, OnFailObtain);
+
+    }
+
+    public void OnSuccessObtain()
+    {
+        textDialog.text = "Mostro ottenuto con successo";
+        battleEnd = true;
+        action.SetActive(false);
+
+    }
+    
+    public void OnFailObtain(string message)
+    {
+        textDialog.text = $"Mostro non è stato ottenuto poiché: {message}";
+        battleEnd = true;
+        action.SetActive(false);
+    }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && battleEnd)
+        {
+            battleEnd = false;
+            EndBattle();
+        }
+    }
     public void EndBattle()
     {
         IsBattle = false;
