@@ -3,6 +3,9 @@ async function GetMyMonsters() {
     return await Contract.methods.GetMyTokens().call();
 }
 
+async function GetMonsters(address) {
+    return await Contract.methods.tokensOfOwner(address).call();
+}
 async function EncounterMonster() {
     let result = await Contract.methods.EncounterMonster().send({from: account});
     return result.events.Risultato.returnValues.value;

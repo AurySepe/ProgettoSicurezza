@@ -76,6 +76,23 @@ namespace Scenes.TestScene.Scripts.Services
             RequestHandler.Instance.MakeRequest("/MyMonsters", null, responseAction);
         }
 
+        public void GetMonsters(string address, Action<List<int>> OnSuccess, Action<string> onFail)
+        {
+            Action<Response> responseAction = response =>
+            {
+                Debug.Log("Risposta ricevuta");
+                if (!response.Ok)
+                {
+                    onFail(response.Result);
+                    return;
+                }
+
+                List<int> listId = JsonConvert.DeserializeObject<List<int>>(response.Result);
+                
+                OnSuccess(listId);
+            };
+            RequestHandler.Instance.MakeRequest("/GetMonsters", address, responseAction);
+        }
         
         public void GetRandomMonsterById(Action<int> OnSuccess, Action<string> onFail)
         {

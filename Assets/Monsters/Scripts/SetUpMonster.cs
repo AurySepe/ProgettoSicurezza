@@ -30,7 +30,7 @@ public class SetUpMonster : MonoBehaviour
         gameObject.name = monster.Nome;
     }
 
-    public void listaMostri()
+    public void listaMostri(string address)
     {
         if (_listaMostri.activeSelf)
         {
@@ -49,7 +49,7 @@ public class SetUpMonster : MonoBehaviour
         }
         else
         {
-            _monsterService.GetMyMonsters(OnSuccessGetLista, s=>{});
+            _monsterService.GetMonsters(address, OnSuccessGetLista, s=>{});
             _listaMostri.SetActive(true);
         }
     }

@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using UnityEngine;
 
@@ -12,6 +12,7 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private Vector3 startPosition;
     
+    [DllImport("__Internal")] private static extern string WalletAddress();
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -19,6 +20,9 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        ExitGames.Client.Photon.Hashtable hashtable = new Hashtable();
+        hashtable.Add("indirizzo", WalletAddress());
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
         PhotonNetwork.JoinRandomOrCreateRoom();
     }
 
