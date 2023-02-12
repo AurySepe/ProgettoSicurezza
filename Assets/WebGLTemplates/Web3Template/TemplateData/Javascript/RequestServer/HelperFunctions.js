@@ -12,5 +12,5 @@ function SendResponse(responseJson)
 
 function RaiseEvent(eventJson)
 {
-    UnityInstance.SendMessage("EventHandler","ReciveEvent",eventJson);
+    UnityInstance.SendMessage("EventHandler","ReceiveEvent",eventJson);
 }

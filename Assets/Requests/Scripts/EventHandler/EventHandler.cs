@@ -23,18 +23,23 @@ public class EventHandler : MonoBehaviour
 
     #region EventsCallback
 
-    public event Action<RisultatoEvent> RisultatoEvents;
+    public event Action<PropostaScambio> PropostaScambioEvents;
+    
+    public event Action<ScambioAccettato> ScambioAccettatoEvents;
 
 
     #endregion
 
-    public void ReciveEvent(string eventJson)
+    public void ReceiveEvent(string eventJson)
     {
         BlockChainEvent chainEvent = JsonConvert.DeserializeObject<BlockChainEvent>(eventJson);
         switch (chainEvent.Name)
         {
-                case "Risultato":
-                    RisultatoEvents?.Invoke(JsonConvert.DeserializeObject<RisultatoEvent>(chainEvent.ReturnValue));
+                case "PropostaScambio":
+                    PropostaScambioEvents?.Invoke(JsonConvert.DeserializeObject<PropostaScambio>(chainEvent.ReturnValue));
+                    break;
+                case "ScambioAccettato":
+                    ScambioAccettatoEvents?.Invoke(JsonConvert.DeserializeObject<ScambioAccettato>(chainEvent.ReturnValue));
                     break;
                 default:
                     Debug.Log($"Nessun Listner implementato per l'evento {chainEvent.Name}");

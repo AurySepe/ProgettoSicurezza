@@ -2,21 +2,34 @@ let options = {
     fromBlock: 'latest'
 };
 
-let Events = ["Risultato","Scambio","Transfer"];
+let eventsAreSetted = false;
 
-function SetEventLisners()
-{
-    for(const event of Events)
-    {
+let Events = ["PropostaScambio", "ScambioAccettato"];
 
-        Contract.events[event](options)
-            .on('data', event =>
+let PropostaScambioListener;
+let ScambioAccettatoListener;
+
+function SetEventListeners() {
+
+    if (!eventsAreSetted) {
+
+
+        Contract.events.allEvents(options).on('data', evento => {
+
+            if(Events.includes(evento.event))
             {
-                let result = {EventName: event.event, ReturnValue: JSON.stringify(event.returnValues)};
+                let result = {EventName: evento.event, ReturnValue: JSON.stringify(evento.returnValues)};
                 RaiseEvent(JSON.stringify(result));
-            });
+            }
+            
+
+        });
+
+        eventsAreSetted = true;
     }
 
+
 }
+
 
 

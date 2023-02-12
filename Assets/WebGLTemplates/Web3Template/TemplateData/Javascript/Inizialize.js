@@ -31,7 +31,7 @@ async function ActivateGame() {
     document.getElementById("buttonConnect").style.display = "none";
     startGame();
     SetContract();
-    SetEventLisners();
+    SetEventListeners();
     //Test();
 }
 

@@ -1,6 +1,6 @@
 let Contract;
 
-let Address = "0x0d2007255bDABe65372EF384EAfACC3DE57D4013";
+let Address = "0x4f78cb335DCa0d4773e9c20214fDd5ff00BD7dB7";
 
 
 let abi = [
@@ -63,6 +63,19 @@ let abi = [
         "anonymous": false,
         "inputs": [
             {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "value",
+                "type": "uint256"
+            }
+        ],
+        "name": "Encounter",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
                 "indexed": true,
                 "internalType": "address",
                 "name": "previousOwner",
@@ -84,11 +97,17 @@ let abi = [
             {
                 "indexed": false,
                 "internalType": "uint256",
-                "name": "value",
+                "name": "id1",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id2",
                 "type": "uint256"
             }
         ],
-        "name": "Risultato",
+        "name": "PropostaScambio",
         "type": "event"
     },
     {
@@ -107,7 +126,7 @@ let abi = [
                 "type": "uint256"
             }
         ],
-        "name": "Scambio",
+        "name": "ScambioAccettato",
         "type": "event"
     },
     {
