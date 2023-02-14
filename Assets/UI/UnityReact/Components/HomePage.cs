@@ -21,8 +21,11 @@ public class HomePage : ComponentUI
 
     public override void Draw()
     {
-        UnityAction action = GoToPlayerList;
-        AddChildComponent<ButtonComponent>(new Vector3(-864.1f,-450,0), 1,"Lista Utenti",Color.white,action);
+        UnityAction actionUtenti = GoToPlayerList;
+        UnityAction actionScambi = GoToTradeList;
+        AddChildComponent<ButtonComponent>(new Vector3(-864.1f,-450,0), 1,"Lista Utenti",Color.white,actionUtenti);
+        AddChildComponent<ButtonComponent>(new Vector3(864.1f,-450,0), 1,"Scambi Ricevuti",Color.white,actionScambi);
+
         
     }
 
@@ -31,6 +34,12 @@ public class HomePage : ComponentUI
     {
         Action<string,object[]> changeRoute = (Action<string,object[]>)Enviroment["ChangeRoute"];
         changeRoute("ListaUtenti",new object[0]);
+    }
+    
+    public void GoToTradeList()
+    {
+        Action<string,object[]> changeRoute = (Action<string,object[]>)Enviroment["ChangeRoute"];
+        changeRoute("PaginaTrades",new object[0]);
     }
     
     

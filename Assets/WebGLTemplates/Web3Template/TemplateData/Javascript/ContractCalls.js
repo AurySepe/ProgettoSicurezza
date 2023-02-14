@@ -1,6 +1,6 @@
 
 async function GetMyMonsters() {
-    return await Contract.methods.GetMyTokens().call();
+    return await Contract.methods.tokensOfOwner(account).call();
 }
 
 async function GetMonsters(address) {
@@ -25,5 +25,20 @@ async function ProposeTrade(input) {
     let result =  await Contract.methods.proposeTrade(input.Item1,input.Item2).send({from: account});
 }
 
+async function GetTrades(input) {
+    let trades =  await Contract.methods.getTrades().call();
+    let result = []
+
+    for (const trade of trades) 
+    {
+        console.log(JSON.stringify(trade))
+        result.push({MonsterProposed: trade[0], MonsterRequired : trade[1]})
+    }
+    return result;
+}
+
+async function AcceptTrade(input) {
+    let result =  await Contract.methods.acceptTrade(input.Item1,input.Item2).send({from: account});
+}
 
 

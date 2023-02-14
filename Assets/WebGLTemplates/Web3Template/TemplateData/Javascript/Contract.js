@@ -1,6 +1,6 @@
 let Contract;
 
-let Address = "0x0C6D48c1B1FF70f70a11C890080305A35aE38a5A";
+let Address = "0xe6d71c66a2Df6C528c87B875A559058B74a0DD9e";
 
 
 let abi = [

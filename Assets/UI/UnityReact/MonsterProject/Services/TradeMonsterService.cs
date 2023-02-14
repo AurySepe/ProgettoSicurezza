@@ -39,7 +39,7 @@ namespace UI.UnityReact.MonsterProject.Services
             return MonsterProposed != -1 && MonsterRequired != -1;
         }
 
-        public void ProposeTrade(Action onSuccess, Action onFail)
+        public void ProposeTrade(Action onSuccess, Action<string> onFail)
         {
             TradeService tradeService = new TradeService();
             tradeService.ProposeTrade(MonsterProposed,MonsterRequired,onSuccess,onFail);

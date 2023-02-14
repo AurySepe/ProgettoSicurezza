@@ -34,7 +34,7 @@ namespace UI.UnityReact.Components.Pagine
         {
             if (tradeMonsterService.IsTradeProposalReady())
             {
-                tradeMonsterService.ProposeTrade(GoHome,() => {});
+                tradeMonsterService.ProposeTrade(GoHome,s => {});
             }
             
         }
