@@ -7,8 +7,9 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 contract MonsterCollection is ERC721Enumerable, Ownable {
-    event Risultato(uint value);
-    event Scambio(uint256 id1, uint256 id2);
+    event PropostaScambio(uint256 id1, uint256 id2);
+    event ScambioAccettato(uint256 id1, uint256 id2);
+    event Encounter(uint value);
     using SafeMath for uint256;
     using Counters for Counters.Counter;
 
@@ -20,21 +21,35 @@ contract MonsterCollection is ERC721Enumerable, Ownable {
         string image;
     }
 
+     struct Trade
+    {
+        uint256 monsterProposed;
+        uint256 monsterRequired;
+    }
+
     mapping(uint256 => Monster) idToMonster;
     mapping(uint256 => mapping(address => bool)) monsterEncounters;
     mapping(uint256 => mapping(uint256 => bool)) trades;
+    Trade[] tradesArray;
 
     constructor() ERC721("LGSNFT", "LGS") {
 
     }
 
 
+    function getTrades() public view returns (Trade[] memory) {
+       return tradesArray;
+    }
+
 
     function proposeTrade(uint256 monsterProposed, uint256 monsterRequired) public {
         _requireMinted(monsterRequired);
         require(ownerOf(monsterProposed) == msg.sender,"il mostro appartiene ad un altro giocatore");
-        trades[monsterProposed][monsterRequired]= true;
-        emit Scambio(monsterProposed, monsterRequired);
+        if(trades[monsterProposed][monsterRequired]==false){
+        trades[monsterProposed][monsterRequired] = true;
+        tradesArray.push(Trade(monsterProposed, monsterRequired));
+        }
+        emit PropostaScambio(monsterProposed, monsterRequired);
     }
 
     function acceptTrade(uint256 monsterProposed, uint256 monsterRequired) public {
@@ -43,8 +58,14 @@ contract MonsterCollection is ERC721Enumerable, Ownable {
         require(trades[monsterProposed][monsterRequired]==true, "scambio non proposto");
         address proprietarioMonsterProposed = ownerOf(monsterProposed);
         trades[monsterProposed][monsterRequired] = false;
-         _safeTransfer(proprietarioMonsterProposed,msg.sender,monsterProposed,"");
-         _safeTransfer(msg.sender, proprietarioMonsterProposed, monsterRequired,"");
+        _safeTransfer(proprietarioMonsterProposed,msg.sender,monsterProposed,"");
+        _safeTransfer(msg.sender, proprietarioMonsterProposed, monsterRequired,"");
+        uint256 j = tradesArray.length;
+        for(uint256 i = 0; i<j; i++){
+            if(tradesArray[i].monsterProposed==monsterProposed && tradesArray[i].monsterRequired==monsterRequired)
+               delete tradesArray[i];
+        }
+        emit ScambioAccettato(monsterProposed,monsterRequired);
     }
 
     function mintNFTs(Monster memory monster) public onlyOwner {
@@ -65,9 +86,9 @@ contract MonsterCollection is ERC721Enumerable, Ownable {
     {
     
         require(NumberOfFreeMonsters() > 0, "Nessun mostro disponibile");
-        uint randomToken = tokenOfOwnerByIndex(address(this),block.timestamp % NumberOfFreeMonsters());
+        uint randomToken = tokenOfOwnerByIndex(address(this),block.number % NumberOfFreeMonsters());
         monsterEncounters[randomToken][msg.sender] = true;
-        emit Risultato(randomToken);
+        emit Encounter(randomToken);
         return randomToken;
     }
 
@@ -91,7 +112,7 @@ contract MonsterCollection is ERC721Enumerable, Ownable {
         return balanceOf(address(this));
     }
 
-    function GetMyTokens() public view returns(uint[] memory)
+    function GetMyTokens() public view returns(uint256[] memory)
     {
         return tokensOfOwner(msg.sender);
     }
@@ -104,7 +125,7 @@ contract MonsterCollection is ERC721Enumerable, Ownable {
         return idToMonster[idToken];
     }
     
-    function tokensOfOwner(address _owner) public view returns (uint[] memory) {
+    function tokensOfOwner(address _owner) public view returns (uint256[] memory) {
         uint tokenCount = balanceOf(_owner);
         uint[] memory tokensId = new uint256[](tokenCount);
 
