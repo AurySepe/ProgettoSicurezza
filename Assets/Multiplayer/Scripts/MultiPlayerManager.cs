@@ -12,7 +12,7 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] private Vector3 startPosition;
     
-    [DllImport("__Internal")] private static extern string WalletAddress();
+   [DllImport("__Internal")] private static extern string WalletAddress();
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -23,6 +23,7 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable hashtable = new Hashtable();
         hashtable.Add("indirizzo", WalletAddress());
         PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
+        PhotonNetwork.NickName = "Prova";
         PhotonNetwork.JoinRandomOrCreateRoom();
     }
 

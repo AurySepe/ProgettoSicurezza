@@ -8,7 +8,7 @@ async function GetMonsters(address) {
 }
 async function EncounterMonster() {
     let result = await Contract.methods.EncounterMonster().send({from: account});
-    return result.events.Risultato.returnValues.value;
+    return result.events.Encounter.returnValues.value;
 }
 
 async function ObtainMonster(id) {
@@ -19,4 +19,11 @@ async function GetMonstersById(id) {
     let result =  await Contract.methods.getMonsterByToken(id).call()
     return {Nome: result[0], ImageBase64 : result[1]};
 }
+
+
+async function ProposeTrade(input) {
+    let result =  await Contract.methods.proposeTrade(input.Item1,input.Item2).send({from: account});
+}
+
+
 

@@ -7,7 +7,11 @@ public class TestEvents : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventHandler.Instance.RisultatoEvents += evento => Debug.Log($"il valore di result è {evento.Value}");
+        EventHandler.Instance.PropostaScambioEvents += scambio =>
+        {
+            Debug.Log($"scambio proposto fra il token {scambio.mostroProposto} e il token {scambio.mostroRichiesto}");
+        };
+
     }
 
     // Update is called once per frame
