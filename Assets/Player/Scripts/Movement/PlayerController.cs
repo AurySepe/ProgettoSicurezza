@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
 
     private event Action hasWalked;
 
+    [SerializeField] 
+    private Animator animator;
+
+    
+
     [SerializeField]
     private float collisionRadius;
 
@@ -41,6 +46,8 @@ public class PlayerController : MonoBehaviour
             }
             if (!input.Equals(Vector2.zero))
             {
+                animator.SetFloat("MoveX",input.x);
+                animator.SetFloat("MoveY",input.y);
                 Vector3 targetPosition = transform.position;
                 targetPosition.x += input.x;
                 targetPosition.y += input.y;
@@ -53,6 +60,7 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+        
     }
 
     protected virtual void StartMoveTo(Vector3 positionToMove)
@@ -64,6 +72,7 @@ public class PlayerController : MonoBehaviour
     protected virtual IEnumerator MoveTo(Vector3 targetPosition)
     {
         isMoving = true;
+        animator.SetBool("isMoving",isMoving);
         while ((targetPosition - transform.position ).sqrMagnitude > Mathf.Epsilon)
         {
             transform.position = Vector3.MoveTowards(transform.position,targetPosition,MoveSpeed*Time.deltaTime);
@@ -73,6 +82,8 @@ public class PlayerController : MonoBehaviour
         transform.position = targetPosition;
         hasWalked?.Invoke();
         isMoving = false;
+        animator.SetBool("isMoving",isMoving);
+
 
     }
 

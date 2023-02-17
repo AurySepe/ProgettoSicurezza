@@ -35,8 +35,8 @@ public class PlayerControllerMultiplayer : PlayerController
 
     protected override void StartMoveTo(Vector3 positionToMove)
     {
-        
-        _photonView.RPC("MoveRpc",RpcTarget.AllBuffered, positionToMove);
+        _positionsToMoveTo.Enqueue(positionToMove);
+        //_photonView.RPC("MoveRpc",RpcTarget.AllBuffered, positionToMove);
     }
 
     [PunRPC]
