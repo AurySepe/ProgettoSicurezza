@@ -9,7 +9,7 @@
   </head>
   <body>
   	<div>
-  		<button id="buttonConnect" onclick="ethereum.enable();" style="display:none"></button>
+  		<button id="buttonConnect" onclick="ethereum.enable();" style="display:none">Connessione con MetaMask</button>
   	</div>
     <div id="unity-container" style="width: 95%;height: 95%; align-content: center">
       <canvas id="unity-canvas" width=auto height=auto></canvas>
@@ -44,4 +44,12 @@
     <script src="TemplateData/Javascript/EventListners/EventListners.js"></script>
 
   </body>
+<style>
+  #buttonConnect{
+    position: absolute;
+    left:45%;
+    top: 45%;
+    height: 80px;
+  }
+</style>
 </html>
