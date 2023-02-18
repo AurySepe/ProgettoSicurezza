@@ -23,7 +23,7 @@ namespace UI.UnityReact.Components.Pagine
         {
             UnityAction actionOk = Scambia;
             UnityAction goHome = GoHome;
-            AddChildComponent<Titolo>(new Vector3(0,430,0),1,"Sei Sicuro di voler scambiare?");
+            AddChildComponent<Titolo>(new Vector3(0,460,0),1,"Sei Sicuro di voler scambiare?");
             AddChildComponent<ButtonComponent>(new Vector3(100,0),1,"Ok",Color.white,actionOk);
             AddChildComponent<ButtonComponent>(new Vector3(-100,0),1,"No",Color.white,goHome);
         }

@@ -16,7 +16,7 @@ public class ListaTradesPage : ComponentUI
 
     public override void Draw()
     {
-        AddChildComponent<Titolo>(new Vector3(0,430,0),1,"Lista Scambi proposti");
+        AddChildComponent<Titolo>(new Vector3(0,460,0),1,"Lista Scambi proposti");
         AddChildComponent<ListaTradesComponent>(Vector3.zero, 1);
     }
 }

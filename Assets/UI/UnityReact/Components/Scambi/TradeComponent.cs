@@ -2,6 +2,7 @@
 using MetaClass.UI.UnityReact.Scripts;
 using Scenes.TestScene.Scripts.Model;
 using Scenes.TestScene.Scripts.Services;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -14,6 +15,8 @@ namespace UI.UnityReact.Components.Scambi
         [SerializeField] private Image MostroRichiesto;
         [SerializeField] private Image MostroProposto;
         [SerializeField] private Button BottoneScambio;
+        [SerializeField] private TextMeshProUGUI textProposto;
+        [SerializeField] private TextMeshProUGUI textRichesto;
 
         private TradeService tradeService;
         
@@ -28,6 +31,8 @@ namespace UI.UnityReact.Components.Scambi
         {
             MostroProposto.sprite = ATrade.MonsterProposed.Img;
             MostroRichiesto.sprite = ATrade.MonsterRequired.Img;
+            textProposto.text = $"ID:{ATrade.MonsterProposed.Id}";
+            textRichesto.text = $"ID:{ATrade.MonsterRequired.Id}";
 
             UnityAction actionOnClick = () =>
             {

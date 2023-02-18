@@ -16,7 +16,7 @@ namespace UI.UnityReact.Components.Utenti
 
         public override void Draw()
         {
-            AddChildComponent<Titolo>(new Vector3(0,430,0),1,$"Lista Utenti");
+            AddChildComponent<Titolo>(new Vector3(0,460,0),1,$"Lista Utenti");
 
             AddChildComponent<ListaUtentiComponent>(Vector3.zero,1);
             UnityAction action = GoHome;

@@ -18,7 +18,7 @@ namespace UI.UnityReact.Components.Mostri
 
         public override void Draw()
         {
-            AddChildComponent<Titolo>(new Vector3(0,430,0),1,"Con chi lo vuoi scambiare?");
+            AddChildComponent<Titolo>(new Vector3(0,460,0),1,"Con chi lo vuoi scambiare?");
             AddChildComponent<ListaMostriDaProporre>(Vector3.zero, 1);
             
         }

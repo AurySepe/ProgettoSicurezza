@@ -19,7 +19,7 @@ namespace UI.UnityReact.Components.Mostri
 
         public override void Draw()
         {
-            AddChildComponent<Titolo>(new Vector3(0,430,0),1,$"Mostri di {playerAddress.Substring(0,10)}...");
+            AddChildComponent<Titolo>(new Vector3(0,460,0),1,$"Mostri di {playerAddress.Substring(0,10)}...");
             AddChildComponent<ListaMostriComponent>(Vector3.zero, 1,playerAddress);
             UnityAction action = GoToPlayerList;
             AddChildComponent<ButtonComponent>(new Vector3(-864.1f,-450,0), 1,"Lista Utenti",Color.white,action);

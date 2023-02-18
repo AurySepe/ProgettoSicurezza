@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Upload un nuovo mostro</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+  	<div>
+  		<button id="buttonConnect" type="button" class="btn btn-primary" onclick="ethereum.enable();" style="display:none">Connessione con MetaMask</button>
+  	</div>
+
+    <div class="container col-md-6"  id="UploadForm" style="display: none">
+      <div class="mb-5">
+        <label for="formFile" class="form-label">Inserisci l'immagine</label>
+        <input class="form-control" type="file" id="formFile" onchange="preview()">
+        <label for="NomeMostro" class="form-label">Nome del mostro</label>
+        <input class="form-control" type="text" id="NomeMostro">
+        <button onclick="uploadMonster()" class="btn btn-primary mt-3">Carica il mostro</button>
+      </div>
+      <img id="frame" src="" class="img-fluid" />
+    </div>
+
+    <script>
+      function preview() {
+        frame.src = URL.createObjectURL(event.target.files[0]);
+      }
+      function clearImage() {
+        document.getElementById('formFile').value = null;
+        frame.src = "";
+      }
+      
+      async function uploadMonster(){
+        var nomeMostro = document.getElementById('NomeMostro').value;
+        var fileMostro = document.getElementById('formFile').files[0];
+        var monsterData = await getBase64(fileMostro);
+        var monster = {name : nomeMostro, image: monsterData };
+        mintNFTs(monster);
+      }
+
+
+      function getBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            let encoded = reader.result.toString().replace(/^data:(.*,)?/, '');
+            if ((encoded.length % 4) > 0) {
+              encoded += '='.repeat(4 - (encoded.length % 4));
+            }
+            resolve(encoded);
+          };
+          reader.onerror = error => reject(error);
+        });
+      }
+    </script>
+    
+    <script src="TemplateData/Javascript/Inizialize.js"></script>
+    <script>
+    window.onload = InizializeUpload;
+
+    </script>
+    <script src="TemplateData/Javascript/web3.min.js"></script>
+    <script src="TemplateData/Javascript/web3Connect.js"></script>
+    <script src="TemplateData/Javascript/Contract.js"></script>
+    <script src="TemplateData/Javascript/ContractCalls.js"></script>
+    <script src="TemplateData/Javascript/RequestServer/RequestRouter.js"></script>
+    <script src="TemplateData/Javascript/RequestServer/HelperFunctions.js"></script>
+    <script src="TemplateData/Javascript/EventListners/EventListners.js"></script>
+
+  </body>
+<style>
+  #buttonConnect{
+    position: absolute;
+    left:45%;
+    top: 45%;
+    height: 80px;
+  }
+</style>
+</html>

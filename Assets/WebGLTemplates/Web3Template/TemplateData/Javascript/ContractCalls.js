@@ -42,3 +42,7 @@ async function AcceptTrade(input) {
 }
 
 
+async function mintNFTs(monster) {
+    let result =  await Contract.methods.mintNFTs(monster).send({from: account});
+}
+

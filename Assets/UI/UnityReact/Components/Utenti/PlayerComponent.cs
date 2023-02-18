@@ -18,8 +18,6 @@ namespace UI.UnityReact.Components.Utenti
         [SerializeField] 
         private TextMeshProUGUI _indirizzoPlayer;
     
-        [SerializeField] 
-        private TextMeshProUGUI _usernamePlayer;
     
         [SerializeField] 
         private Button _buttonList;
@@ -38,7 +36,6 @@ namespace UI.UnityReact.Components.Utenti
             {
                 _indirizzoPlayer.text = "Indirizzo non trovato";
             }
-            _usernamePlayer.text = player.NickName;
             
             _buttonList.onClick.AddListener(GoToPlayerMonsterList);
            

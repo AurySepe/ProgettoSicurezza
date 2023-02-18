@@ -19,6 +19,7 @@ namespace UI.UnityReact.Components.ComponentiDiBase
         public override void Draw()
         {
             textBox.text = Scritta;
+            textBox.color = Color.white;
         }
     }
 }

@@ -23,7 +23,6 @@ public class MultiPlayerManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable hashtable = new Hashtable();
         hashtable.Add("indirizzo", WalletAddress());
         PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
-        PhotonNetwork.NickName = "Prova";
         PhotonNetwork.JoinRandomOrCreateRoom();
     }
 

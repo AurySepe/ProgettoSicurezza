@@ -7,7 +7,7 @@ using UnityEngine;
 namespace UI.UnityReact.Components.Scambi
 {
     [PrefabPath("Assets/UI/UnityReact/Resources/Scambi/Lista Scambi.prefab")]
-    public class ListaTradesComponent : ComponentUI
+    public class ListaTradesComponent : ScrollViewComponent
     {
 
         public List<Trade> MyTrades;
