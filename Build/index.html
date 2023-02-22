@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Progetto Sicurezza</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+  	<div>
+  		<button id="buttonConnect" type="button" class="btn btn-primary" onclick="ethereum.enable();" style="display:none">Connessione con MetaMask</button>
+  	</div>
+    <div id="unity-container" style="width: 95%;height: 95%; align-content: center">
+      <canvas id="unity-canvas" width=auto height=auto></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
+      <!--
+      <div id="unity-mobile-warning">
+        WebGL builds are not supported on mobile devices.
+      </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Progetto Sicurezza</div>
+      </div>
+      -->
+    </div>
+    <script src="TemplateData/Javascript/Inizialize.js"></script>
+    <script>
+    window.onload = Inizialize;
+
+    </script>
+    <script src="TemplateData/Javascript/web3.min.js"></script>
+    <script src="TemplateData/Javascript/web3Connect.js"></script>
+    <script src="TemplateData/Javascript/Contract.js"></script>
+    <script src="TemplateData/Javascript/ContractCalls.js"></script>
+    <script src="TemplateData/Javascript/RequestServer/RequestRouter.js"></script>
+    <script src="TemplateData/Javascript/RequestServer/HelperFunctions.js"></script>
+    <script src="TemplateData/Javascript/EventListners/EventListners.js"></script>
+
+  </body>
+<style>
+  #buttonConnect{
+    position: absolute;
+    left:45%;
+    top: 45%;
+    height: 80px;
+  }
+</style>
+</html>
